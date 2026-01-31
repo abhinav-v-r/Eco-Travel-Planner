@@ -63,15 +63,13 @@ For security, the API key is loaded from an environment file.
    ```
    GOOGLE_API_KEY=your_actual_api_key_here
    ```
-3. **Note:** The `.gitignore` file is already configured to ensure your `.env` file is never uploaded to GitHub.
-
 ### Step 4: Run the Application
 
 ```bash
 streamlit run app.py
 ```
 
-The app will open in your browser at `http://localhost:8501`
+The app will open in your browser at `http://localhost:0000`
 
 ## 🎮 How to Use
 
@@ -123,24 +121,6 @@ The app uses Google Gemini 1.5 Flash with:
 ### App won't start
 - Ensure Python 3.9+ is installed: `python --version`
 - Verify all dependencies: `pip install -r requirements.txt`
-
-## 📝 Running in Google Colab
-
-To run in Colab, create a new notebook and run:
-
-```python
-# Install dependencies
-!pip install streamlit google-generativeai python-dotenv
-
-# Create the app file (copy contents of app.py)
-%%writefile app.py
-# <paste entire app.py content here>
-
-# Run with localtunnel
-!npm install -g localtunnel
-!streamlit run app.py &>/dev/null&
-!lt --port 8501
-```
 
 ## 🤝 Contributing
 
