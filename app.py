@@ -17,9 +17,13 @@ load_dotenv(env_path, override=True)
 # =============================================================================
 # CONFIGURATION
 # =============================================================================
-# The API key is loaded from the .env file for security.
-# Copy .env.example to .env and add your key there.
-API_KEY = os.getenv("GOOGLE_API_KEY")
+# API Key loading: supports both local .env and Streamlit Cloud secrets
+try:
+    # For Streamlit Cloud deployment
+    API_KEY = st.secrets.get("GOOGLE_API_KEY", None)
+except (FileNotFoundError, AttributeError):
+    # For local development
+    API_KEY = os.getenv("GOOGLE_API_KEY")
 
 # =============================================================================
 # PAGE CONFIGURATION
